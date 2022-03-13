@@ -20,5 +20,18 @@ void main(){
 		}
 	}
 
-	for()
+	for(int k=1;k<n;k++){
+		int min = INF;
+		for(i=1;i<=n;i++){
+			for(j=1;j<=n;j++){
+				if(cost[i][j]<min){
+					min = cost[i][j];
+					a=i;
+					b=j;
+				}
+			}
+		}
+	}
+
+	
 }
