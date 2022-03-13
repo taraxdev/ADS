@@ -1,6 +1,6 @@
 #include <stdio.h>
 void main(){
-	int i, min, max;
+	int i,n, min, max;
 	printf("Enter the array size: \n");
 	scanf("%d", &n);
 	printf("Enter the elements: \n");
@@ -15,7 +15,7 @@ void main(){
 			max=a[i];
 		}
 	}
-	printf("Largest Elements: %d", max);
+	printf("Largest Elements: %d \n", max);
 
 	min = a[0];
 	for(i=1;i<n;i++){
