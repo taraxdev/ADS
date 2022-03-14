@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-int n,size=3,front=-1,rear=-1,q[10],i;
+int n,size=5,front=-1,rear=-1,q[10],temp,i;
 void enqueue()
 {
-if (rear==size-1)
+if ((front==0 && rear==size-1) || (rear==front-1))
 {
-printf("Queue overflow..\n");
+	printf("Queue overflow..\n");
+
 }
 else
 {
@@ -15,32 +16,42 @@ front++;
 }
 printf("Enter value to insert:\n");
 scanf("%d",&n);
-rear++;
+rear=(rear+1)%size;
 q[rear]=n;
-printf("Inserted %d\n",q[rear]);
+printf("inserted %d\n",q[rear]);
 }
 }
-
 void dequeue()
 {
-if(front==-1 || front>rear)
+if(front==-1 && rear==-1)
 {
-printf("Queue Underflow..\n");
+	printf("Queue Underflow..\n");
+
 }
 else
 {
+if(front==rear)
+{
 printf("Removed %d\n",q[front]);
-front++;
+front=rear=-1; 
 }
+else
+{
+	printf("Removed %d\n",q[front]);
+	front=(front+1)%size;
+		}
+	}
 }
-
 void display()
 {
 printf("Queue elements are:\n");
-for (i=front;i<=rear;i++)
+i=front;
+while(i!=rear)
 {
 printf("%d\n",q[i]);
+i=(i+1)%size;
 }
+printf("%d\n",q[rear]);
 }
 
 void main()
