@@ -1,104 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
-void exit();
+
 struct node{
   int data;
   struct node*next;
-};
-struct node * head=NULL,*new,*l,*temp,*tem;
-int n,pos,i;
+}
+
+struct node*head=NULL,next,l,tem,temp;
+int pos,i,n;
+
 void create(){
-  new=(struct node*)malloc(sizeof(struct node));
-  printf("Enter the value to insert");
+  new = (struct node*)malloc(sizeof(struct node));
+  printf("Please enter the number");
   scanf("%d", &n);
   new->next=NULL;
-  new->data=n;
+  new->data=n
 }
 
-void insertbeg(){
-  create();
+void del_beg(){
   if(head==NULL){
-    head=new;
-  }else{
-    new->next=head;
-    head=new;
-  }
-}
-
-void insertend(){
-  create();
-  if(head==NULL){
-    head=new;
-  }else{
-    l=head;
-    while(l->next!=NULL){
-      l=l->next;
-    }
-    l->next=new;
-  }
-}
-
-void insertpos(){
-    create();
-    int pos;
-    printf("Enter the postition to insert:");
-    scanf("%d", &pos);
-    if(pos==1){
-      insertbeg();
-    }else{
-      l=head;
-      for(i=0;i<pos;i++){
-        l=l->next;
-      }
-      new->next=l->next;
-      l->next=new;    }
-}
-
-void display(){
-  if(head==NULL){
-    printf("Underflow");
-  }else{
-    l=head;
-    while(l!=NULL){
-      printf("%d",l->data);
-      l=l->next;
-    }
-  }
-}
-
-void delbeg(){
-  if(head==NULL){
-    printf("Underflow");
+    printf("Undeflow");
   }else{
     temp=head;
     head=head->next;
-    free(temp);
+    free(temp)
   }
 }
 
-void delend(){
+void del_end(){
   if(head==NULL){
-    printf("underflow");
+    printf("Underflow");
   }else{
     temp=head;
     while(temp->next!=NULL){
       tem=temp;
       temp=temp->next;
     }
-    printf("%d is removed", temp->data);
+    printf("%d removed", temp->data);
     tem->next=NULL;
   }
 }
 
 void delpos(){
   int pos;
-  scanf("%d", &pos);
-  printf("enter the pos");
+  printf("Enter the position: ");
+  scanf("%d",&pos);
   temp=head;
-  for(i=0;i<pos;i++){
+  for(i=1;i<pos;i++){
     tem=temp;
-    temp=temp->next;
+    temp=temp->next
   }
-  printf("%d is removed",temp->data);
-  tem -> next = temp -> next;
+  printf("%d removed", temp->data);
+  tem->next=temp->next
 }

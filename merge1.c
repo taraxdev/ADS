@@ -22,5 +22,6 @@ void push(){
 		printf("enter the value to push\n");
 		scanf("%d",&n);
 		top++;
+		
 	}
 }
