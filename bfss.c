@@ -24,19 +24,6 @@ void bfs(int s){
 	enqueue(s);
 	for(p=dequeue();p!=error;p=dequeue()){
 		for(i=p,j=1;j<=v;j++){
-			if(matrix[p][j]==1&&visited[j]==0){
-				enqueue(j);
-				visited[j]=1;
-			}
-		}
-	}
-}
-
-void bfs(int s){
-	int p;
-	enqueue(s);
-	for(p=dequeue();p!=error;p=dequeue()){
-		for(i=p,j=1;j<=v;j++){
 			if(matrix[p][j]==1 && visited[j]==0){
 				enqueue(j);
 				visited[j]=1;
@@ -49,7 +36,7 @@ void main(){
 	printf("\n\n\t\t\t\t\tPROGRAM TO PERFORM BFS\n\n");
  	printf("____________________________________________________________________________________________________________________________________________________________________________\n\n");
 
- 	
+
 
  	printf("\n____________________________________________________________________________________________________________________________________________________________________________\n\n");
 }
